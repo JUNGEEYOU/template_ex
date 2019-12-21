@@ -1,3 +1,4 @@
+import ssl
 from urllib.request import urlopen
 
 
@@ -23,6 +24,10 @@ class AbstractNewsParser(object):
         # 5. 사용자에게 출력해서 보내준다.
         for item in cropped:
             print("Title: ", item['title'])
+            print("Content: ", item['content'])
+            print("Link: ", item['link'])
+            print("Published: ", item['published'])
+            print("ID: ", item['id'])
 
     def get_url(self):
         """
@@ -37,7 +42,8 @@ class AbstractNewsParser(object):
         :param url:
         :return:
         """
-        return urlopen(url).read()
+        context = ssl._create_unverified_context()
+        return urlopen(url, context=context).read()
 
     def parse_content(self, content):
         """

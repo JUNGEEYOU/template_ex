@@ -5,5 +5,7 @@ if __name__ == "__main__":
     google = GoogleParser()
     yahoo = YahooParser()
 
-    print("Google: \n", google.print_top_news())
-    print("Yahoo: \n", yahoo.print_top_news())
+    print("Google:")
+    google.print_top_news()
+    print("Yahoo:")
+    yahoo.print_top_news()

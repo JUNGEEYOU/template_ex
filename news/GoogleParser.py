@@ -39,12 +39,12 @@ class GoogleParser(AbstractNewsParser):
                 parsed_item['content'] = None
 
             try:
-                parsed_item['link'] = node.getElementsByTagName('link')[0].childNodes[0].nodeValue
+                parsed_item['link'] = node.getElementsByTagName('link')[0].getAttribute("href")
             except IndexError:
                 parsed_item['link'] = None
 
             try:
-                parsed_item['id'] = node.getElementsByTagName('guid')[0].childNodes[0].nodeValue
+                parsed_item['id'] = node.getElementsByTagName('id')[0].childNodes[0].nodeValue
             except IndexError:
                 parsed_item['id'] = None
 
